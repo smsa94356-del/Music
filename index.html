@@ -90,4 +90,20 @@
 </body>
 </html>
 
+  <script>
+  // الحصول على زر التوليد بناءً على الكلاس أو الـ ID أو نوع الزر
+  const generateBtn = document.querySelector( button ); // أو استبدله بالـ ID الخاص بك
   
+  if (generateBtn) {
+      generateBtn.addEventListener( click , function(e) {
+          e.preventDefault(); // منع إعادة تحميل الصفحة إذا كان داخل نموذج (Form)
+          
+          // رسالة تجريبية للتأكد من أن الزر أصبح يتحرك ويستجيب
+          alert( جاري معالجة وتوليد الأغنية، يرجى الانتظار... );
+          
+          // هنا يمكنك وضع كود الاتصال بالخدمة أو السيرفر الخاص بك لاحقاً
+      });
+  }
+</script>
+
+
