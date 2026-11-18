@@ -3,52 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مولد الأغاني بالذكاء الاصطناعي</title>
+    <title>استوديو الذكاء الاصطناعي</title>
     <style>
         body {
-            font-family: Tahoma, sans-serif;
-            background: #0f172a;
+            background-color: #0d1b2a;
             color: #ffffff;
+            font-family: Tahoma, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
         }
         .container {
-            background: #1e293b;
+            background-color: #1b263b;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            width: 90%;
             max-width: 400px;
+            text-align: center;
         }
-        h2 { text-align: center; color: #38bdf8; margin-bottom: 20px; }
-        label { display: block; margin-top: 15px; margin-bottom: 5px; font-size: 14px; }
+        h2 {
+            color: #4ea8de;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: right;
+            font-size: 14px;
+        }
         input, textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #475569;
-            background: #0f172a;
+            margin-bottom: 15px;
+            background-color: #0d1b2a;
+            border: 1px solid #415a77;
+            border-radius: 6px;
             color: #fff;
-            border-radius: 8px;
             box-sizing: border-box;
         }
-        textarea { resize: vertical; height: 80px; }
         button {
             width: 100%;
-            margin-top: 20px;
-            padding: 12px;
-            background: #0284c7;
+            background-color: #0077b6;
             color: white;
+            padding: 12px;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0096c7;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 15px;
             font-weight: bold;
         }
-        button:hover { background: #0369a1; }
-        #result { margin-top: 20px; text-align: center; font-size: 14px; color: #a1a1aa; }
     </style>
 </head>
 <body>
@@ -57,53 +73,39 @@
         <h2>استوديو الذكاء الاصطناعي</h2>
         
         <label>صف اللحن أو الموسيقى:</label>
-        <input type="text" id="musicPrompt" placeholder="مثال: موسيقى حزينة هادئة...">
-
+        <input type="text" id="musicInput" placeholder="موسيقى وبيت سعاده">
+        
         <label>اكتب الكلمات الجديدة:</label>
-        <textarea id="lyricsInput" placeholder="اكتب الكلمات التي تريد غناءها هنا..."></textarea>
-
+        <textarea id="lyricsInput" rows="4" placeholder="اكتب كلمات الأغنية هنا..."></textarea>
+        
         <button onclick="generateSong()">توليد الأغنية</button>
-
+        
         <div id="result"></div>
     </div>
 
     <script>
         function generateSong() {
-            const music = document.getElementById( musicPrompt ).value;
+            const music = document.getElementById( musicInput ).value;
             const lyrics = document.getElementById( lyricsInput ).value;
             const resultDiv = document.getElementById( result );
 
-            if(!music || !lyrics) {
-                alert( الرجاء إدخال وصف الموسيقى والكلمات أولاً! );
+            if (!music || !lyrics) {
+                resultDiv.style.color = "#ff6b6b";
+                resultDiv.innerHTML = "⚠️ الرجاء تعبئة وصف اللحن والكلمات أولاً!";
                 return;
             }
 
-            resultDiv.innerHTML = "⏳ جاري معالجة الصوت والألحان بالذكاء الاصطناعي... يرجى الانتظار";
-            
-            // محاكاة عملية التوليد (يمكنك ربطه بأي API حقيقي لاحقاً)
+            resultDiv.style.color = "#4ea8de";
+            resultDiv.innerHTML = "⏳ جاري معالجة وتوليد الأغنية...";
+
+            // محاكاة عملية التوليد البرمجية
             setTimeout(() => {
-                resultDiv.innerHTML = "✅ تم توليد الأغنية بنجاح! (جاهزة للتحميل)";
+                resultDiv.style.color = "#52b788";
+                resultDiv.innerHTML = "✅ تم توليد الأغنية بنجاح!";
             }, 3000);
         }
     </script>
 
 </body>
 </html>
-
-  <script>
-  // الحصول على زر التوليد بناءً على الكلاس أو الـ ID أو نوع الزر
-  const generateBtn = document.querySelector( button ); // أو استبدله بالـ ID الخاص بك
-  
-  if (generateBtn) {
-      generateBtn.addEventListener( click , function(e) {
-          e.preventDefault(); // منع إعادة تحميل الصفحة إذا كان داخل نموذج (Form)
-          
-          // رسالة تجريبية للتأكد من أن الزر أصبح يتحرك ويستجيب
-          alert( جاري معالجة وتوليد الأغنية، يرجى الانتظار... );
-          
-          // هنا يمكنك وضع كود الاتصال بالخدمة أو السيرفر الخاص بك لاحقاً
-      });
-  }
-</script>
-
 
