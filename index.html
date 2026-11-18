@@ -83,6 +83,7 @@
         <div id="result"></div>
     </div>
 
+    <!-- كود الجافاسكريبت لتشغيل الزر والتفاعل معه -->
     <script>
         function generateSong() {
             const music = document.getElementById( musicInput ).value;
@@ -98,13 +99,17 @@
             resultDiv.style.color = "#4ea8de";
             resultDiv.innerHTML = "⏳ جاري معالجة وتوليد الأغنية...";
 
-            // محاكاة عملية التوليد البرمجية
+            // محاكاة عملية التوليد
             setTimeout(() => {
                 resultDiv.style.color = "#52b788";
                 resultDiv.innerHTML = "✅ تم توليد الأغنية بنجاح!";
             }, 3000);
         }
     </script>
+
+    <!-- أداة المطورين (Console) للجوال لمعرفة الأخطاء إن وجدت -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
 
 </body>
 </html>
